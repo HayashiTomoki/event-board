@@ -3,5 +3,6 @@ class EventsController < ApplicationController
   end
 
   def list
+    @event = Event.all
   end
 end
