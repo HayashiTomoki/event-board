@@ -1,5 +1,5 @@
 require 'slack'
 
 Slack.configure do |config|
-  config.token = SlackAPItoken
+  config.token = ENV['SlackAPItoken']
 end
