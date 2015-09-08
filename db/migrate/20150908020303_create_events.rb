@@ -3,8 +3,8 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :title
       t.string :owner
-      t.time :date
-      t.time :deadline
+      t.datetime :date
+      t.datetime :deadline
       t.text :detail
 
       t.timestamps null: false

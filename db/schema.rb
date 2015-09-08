@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20150908032327) do
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.string   "owner"
-    t.time     "date"
-    t.time     "deadline"
+    t.datetime "date"
+    t.datetime "deadline"
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
