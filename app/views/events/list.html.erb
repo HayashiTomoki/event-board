@@ -1,2 +1,17 @@
-<h1>Events#list</h1>
-<p>Find me in app/views/events/list.html.erb</p>
+<h2>イベント一覧</h2>
+ <table border="1">
+   <tr>
+        <th>イベント名</th>
+        <th>開催日</th>
+        <th>参加期限</th>
+        <th>参加者一覧</th>
+    </tr>
+    <% @event.each_with_index do |event, i| %>
+        <tr>
+            <%= content_tag :td, h(event.title) %>
+            <%= content_tag :td, event.date.strftime('%Y/%m/%d') %>
+            <%= content_tag :td, event.deadline.strftime('%Y/%m/%d') %>
+            <th>参加者一覧</th>
+        </tr>
+    <% end %>
+</table>
