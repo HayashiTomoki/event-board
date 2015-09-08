@@ -27,3 +27,15 @@ Event.create(
   :deadline => '2015-12-30 00:00:00',
   :detail   => 'text text text text'
 )
+Participant.create(
+  :event_id => 1,
+  :user_id   => 1,
+  :user_name => 'userName1',
+)
+Participant.create(
+  :event_id => 1,
+  :user_id   => 2,
+  :user_name => 'userName2',
+  :status => :ancelled,
+)
+
