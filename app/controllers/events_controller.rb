@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   def create
 	 @event = Event.new(event_params)
 	  if @event.save
-	    # @userはuser_path(@user) に自動変換される
 	    redirect_to events_path
+	    notify_to_slack
 	  else
 	    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
 	    render 'new'
@@ -28,6 +28,26 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:title, :owner, :date ,:deadline ,:detail)
+  end
+
+  private
+  def notify_to_slack
+  text = <<-EOC
+  --------------------------------------------
+  新しいイベントが作成されました。
+  --------------------------------------------
+
+  タイトル：#{@event.title}
+
+  開催日時：#{@event.date}
+
+  参加期限：#{@event.deadline}
+
+  詳細ページ：http://localhost:3000#{event_path(@event)}
+
+  EOC
+
+  Slack.chat_postMessage text: text, username: "イベント通知bot", channel: "#general"
   end
 
 end
