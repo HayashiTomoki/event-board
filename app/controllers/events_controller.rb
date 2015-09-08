@@ -18,9 +18,9 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
-  private
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。
+  private
   def event_params
     params.require(:event).permit(:title, :owner, :date ,:deadline ,:detail)
   end
