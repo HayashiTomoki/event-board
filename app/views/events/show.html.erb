@@ -8,8 +8,8 @@
   </tr>
   <tr>
     <%= content_tag :td, @event.detail %>
-    <%= content_tag :td, @event.date.strftime('%Y/%m/%d') %>
-    <%= content_tag :td, @event.deadline.strftime('%Y/%m/%d') %>
+    <%= content_tag :td, @event.date.strftime('%Y年%m月%d日 %H時%M分') %>
+    <%= content_tag :td, @event.deadline.strftime('%Y年%m月%d日 %H時%M分') %>
   </tr>
 </table> 
 
