@@ -1,4 +1,4 @@
-<h1>イベント作成ページ<h1>
+<h1>イベント作成ページ</h1>
 
 <%= form_for @event do |f| %>
 
@@ -14,12 +14,12 @@
 
 	<div>
     	<%= f.label :date, "開催日" %>
-    	<%= f.text_field :date %>
+    	<%= f.datetime_select :date %>
 	</div>
 
 	<div>
     	<%= f.label :deadline, "期限" %>
-    	<%= f.text_field :deadline %>
+    	<%= f.datetime_select :deadline %>
 	</div>
 
   <div>
