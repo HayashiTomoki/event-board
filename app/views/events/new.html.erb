@@ -1,0 +1,33 @@
+<h1>イベント作成ページ<h1>
+
+<%= form_for @event do |f| %>
+
+	<div>
+    	<%= f.label :title, "タイトル" %>
+    	<%= f.text_field :title %>
+ 	</div>
+
+	<div>
+    	<%= f.label :owner, "主催者" %>
+    	<%= f.text_field :owner %>
+	</div>
+
+	<div>
+    	<%= f.label :date, "開催日" %>
+    	<%= f.text_field :date %>
+	</div>
+
+	<div>
+    	<%= f.label :deadline, "期限" %>
+    	<%= f.text_field :deadline %>
+	</div>
+
+  <div>
+      <%= f.label :detail, "詳細" %>
+      <%= f.text_area :detail ,size: "100x10"%>
+  </div>
+  
+	<div>
+    	<%= f.submit "作成する" %>
+  </div>
+<% end %>
