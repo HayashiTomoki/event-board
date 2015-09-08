@@ -4,14 +4,15 @@
         <th>イベント名</th>
         <th>開催日</th>
         <th>参加期限</th>
-        <th>参加者一覧</th>
+        <th></th>
     </tr>
-    <% @event.each_with_index do |event, i| %>
+    <% @events.each_with_index do |event, i| %>
         <tr>
             <%= content_tag :td, h(event.title) %>
-            <%= content_tag :td, event.date.strftime('%Y/%m/%d') %>
-            <%= content_tag :td, event.deadline.strftime('%Y/%m/%d') %>
+            <%= content_tag :td, event.date.strftime('%Y年%m月%d日 %H時%M分') %>
+            <%= content_tag :td, event.deadline.strftime('%Y年%m月%d日 %H時%M分') %>
             <th>参加者一覧</th>
         </tr>
     <% end %>
 </table>
+

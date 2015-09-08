@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @event = Event.all
+    @events = Event.all
   end
 
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
