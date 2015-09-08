@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 	 @event = Event.new(event_params)
 	  if @event.save
 	    # @userはuser_path(@user) に自動変換される
-	    redirect_to :action => "list"
+	    redirect_to events_path
 	  else
 	    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
 	    render 'new'
