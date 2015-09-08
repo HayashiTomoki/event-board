@@ -18,6 +18,11 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @participants = @event.participants
+  end
+
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。
   private
