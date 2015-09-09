@@ -26,9 +26,9 @@
 <table border="1">
 <th>参加者</th>
   </tr>
-  <% @participants.each do |participant| %>
+  <% @participants.each_with_index do |participant, i| %>
     <tr>
-      <%= content_tag :td, participant.user_name %>
+      <%= content_tag :td, @participants[0].user.name %>
       <%= content_tag :td, participant.status %>
     </tr>
   <% end %>  
