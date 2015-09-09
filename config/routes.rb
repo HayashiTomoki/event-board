@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   post 'events/join' => 'events#join'
   post 'events/cancel' => 'events#cancel'
+  post 'events/add_comment' => 'events#add_comment'
 
 
 

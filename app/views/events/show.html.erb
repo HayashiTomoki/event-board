@@ -72,3 +72,30 @@
     </tr>
   <% end %>  
 </table>
+
+<%= form_tag(action: :add_comment, method: :post) do %>
+  <%= hidden_field 'event', 'id', :value => @event.id %>
+
+  <div>
+  <%= label :user_name, '名前'%>
+  <%= text_field 'comment', 'user_name' %>
+  </div>
+
+  <div>
+  <%= label :text, 'コメント'%>
+  <%= text_area 'comment', 'text' %>
+  </div>
+
+  <div>
+  <%= button_tag('コメント') %>
+  </div>
+<% end %>
+
+<table>
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.user_name %></td>
+    <td><%= comment.text %></td>
+  </tr>
+<% end %>
+</table>
