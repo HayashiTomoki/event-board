@@ -15,8 +15,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
-    @events = @events.order("date")
+    from = Time.now.at_beginning_of_day
+    to   = from + 1.year
+    @events = Event.where(date: (from...to)).order("date")
   end
 
   def show
