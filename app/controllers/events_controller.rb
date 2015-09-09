@@ -22,24 +22,21 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participants = @event.participants
-
-    @participated_user = @participants.where(status: "participated")
-    @cancelled_user = @participants.where(status: "cancelled")
-    @unanswered_user = @participants.where(status: "unanswered")
-
-    @users = User.all
+    @participated_users = @participants.where(status: 'participated')
+    @cancelled_users = @participants.where(status: 'cancelled')
+    @unanswered_users = @participants.where(status: 'unanswered')
   end
 
   def join
-   @participant = Participant.find(params[:participant][:user_id])
-   @participant.update(status: 'participated')
-   redirect_to :back 
+    @participant = Participant.find(params[:participant][:user_id])
+    @participant.update(status: 'participated')
+    redirect_to :back 
   end
 
   def cancel 
-   @participant = Participant.find(params[:participant][:user_id])
-   @participant.update(status: 'cancelled')
-   redirect_to :back 
+    @participant = Participant.find(params[:participant][:user_id])
+    @participant.update(status: 'cancelled')
+    redirect_to :back 
   end
 
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。

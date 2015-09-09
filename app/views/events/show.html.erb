@@ -20,7 +20,7 @@
 <table border="1">
 <th>参加者</th>
   </tr>
-  <% @participated_user.each do |user| %>
+  <% @participated_users.each do |user| %>
     <tr>
       <td><%= user.user_name %></td>
       <td>
@@ -37,7 +37,7 @@
 <table border="1">
 <th>不参加者</th>
   </tr>
-  <% @cancelled_user.each do |user| %>
+  <% @cancelled_users.each do |user| %>
     <tr>
       <td><%= user.user_name %></td>
       <td>
@@ -54,7 +54,7 @@
 <table border="1">
 <th>未回答者</th>
   </tr>
-  <% @unanswered_user.each do |user| %>
+  <% @unanswered_users.each do |user| %>
     <tr>
       <td><%= user.user_name %></td>
       <td>
