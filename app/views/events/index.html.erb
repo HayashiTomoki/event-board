@@ -1,18 +1,21 @@
-<h2>イベント一覧</h2>
-<table border="1">
-  <tr>
-    <th>イベント名</th>
-    <th>開催日</th>
-    <th>参加期限</th>
-    <th></th>
-  </tr>
-  <% @events.each_with_index do |event, i| %>
-  <tr>
-    <%= content_tag :td, h(event.title) %>
-    <%= content_tag :td, l(event.date) %>
-    <%= content_tag :td, l(event.deadline) %>
-    <td><%= link_to('詳細', event_path(event.id)) %></td>
-  </tr>
-  <% end %>
-</table>
-
+<div class="main">
+  <div>
+  <div class="title">イベント一覧</div>
+  <table class="pure-table pure-table-bordered pure-table-striped">
+    <tr>
+      <th>イベント名</th>
+      <th>開催日</th>
+      <th>参加期限</th>
+      <th></th>
+    </tr>
+    <% @events.each_with_index do |event, i| %>
+    <tr>
+      <%= content_tag :td, h(event.title) %>
+      <%= content_tag :td, l(event.date) %>
+      <%= content_tag :td, l(event.deadline) %>
+      <td><%= link_to('詳細', event_path(event.id),:class => 'button-success pure-button') %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
