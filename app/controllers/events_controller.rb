@@ -24,6 +24,15 @@ class EventsController < ApplicationController
     @participants = @event.participants
   end
 
+  def join
+   @participant = Participant.new
+   @participant.event_id = params[:event][:id]
+   @participant.user_name = params[:participant][:name]
+   @participant.status = 'participated' 
+   @participant.save
+   redirect_to :back 
+  end
+
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。
   private
