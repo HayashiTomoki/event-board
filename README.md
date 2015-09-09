@@ -26,7 +26,7 @@
 |:-------:|:------:|:---------:|
 |id       |INTEGER |PRIMARY KEY|
 |title    |varchar ||
-|date     |varvhar ||
+|date     |varchar ||
 |deadline |datetime||
 |create_at|datetime||
 |update_at|datetime||
@@ -40,3 +40,9 @@
 |status   |enum    ||
 |create_at|datetime||
 |update_at|datetime||
+
+### Users
+|カラム名 |型      |その他|
+|:-------:|:------:|:---------:|
+|id       |INTEGER |PRIMARY KEY|
+|name     |varchar ||
