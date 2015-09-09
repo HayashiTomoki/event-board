@@ -31,4 +31,12 @@
 |create_at|datetime||
 |update_at|datetime||
 
-
+### Participants
+|カラム名 |型      |その他|
+|:-------:|:------:|:---------:|
+|id       |INTEGER |PRIMARY KEY|
+|event_id |INTEGER ||
+|user_id  |INTEGER ||
+|status   |enum    ||
+|create_at|datetime||
+|update_at|datetime||
