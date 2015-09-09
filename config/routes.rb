@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :events
 
   post 'events/join' => 'events#join'
-  post 'events/cancel' => 'events#cancel'
 
 
 
