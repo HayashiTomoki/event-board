@@ -20,10 +20,15 @@
 * イベントへの不参加・キャンセル機能
 * Slackでの通知機能
 
-## 画面遷移
-
-## ファイル配置
-
 ## DB構成
+### Events
+|カラム名 |型      |その他|
+|:-------:|:------:|:---------:|
+|id       |INTEGER |PRIMARY KEY|
+|title    |varchar ||
+|date     |varvhar ||
+|deadline |datetime||
+|create_at|datetime||
+|update_at|datetime||
 
 
