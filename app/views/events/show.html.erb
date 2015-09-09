@@ -20,9 +20,9 @@
 <table border="1">
 <th>参加者</th>
   </tr>
-  <% @participated_user.each_with_index do |user, i| %>
+  <% @participated_user.each do |user| %>
     <tr>
-      <td><%= user.status %></td>
+      <td><%= user.user_name %></td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
@@ -37,9 +37,9 @@
 <table border="1">
 <th>不参加者</th>
   </tr>
-  <% @cancelled_user.each_with_index do |user, i| %>
+  <% @cancelled_user.each do |user| %>
     <tr>
-      <td><%= user.status %></td>
+      <td><%= user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
@@ -54,9 +54,9 @@
 <table border="1">
 <th>未回答者</th>
   </tr>
-  <% @unanswered_user.each_with_index do |user, i| %>
+  <% @unanswered_user.each do |user| %>
     <tr>
-      <td><%= user.status %></td>
+      <td><%= user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>

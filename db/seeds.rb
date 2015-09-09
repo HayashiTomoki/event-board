@@ -31,19 +31,19 @@ Event.create(
 Participant.create(
   :event_id  => 1,
   :user_id   => 1,
-  :user_name => 'userName1',
+  :user_name => 'TOM',
   :status    => :unanswered,
 )
 Participant.create(
   :event_id  => 1,
   :user_id   => 2,
-  :user_name => 'userName2',
+  :user_name => 'BOB',
   :status    => :unanswered,
 )
 Participant.create(
   :event_id  => 1,
   :user_id   => 3,
-  :user_name => 'userName2',
+  :user_name => 'JACK',
   :status    => :cancelled,
 )
 
