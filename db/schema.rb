@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909020845) do
+ActiveRecord::Schema.define(version: 20150908032327) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -25,11 +25,5 @@ ActiveRecord::Schema.define(version: 20150909020845) do
 
 # Could not dump table "participants" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
