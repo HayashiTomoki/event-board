@@ -8,13 +8,18 @@
   </tr>
   <tr>
     <%= content_tag :td, @event.detail %>
-    <%= content_tag :td, @event.date.strftime('%Y年%m月%d日 %H時%M分') %>
-    <%= content_tag :td, @event.deadline.strftime('%Y年%m月%d日 %H時%M分') %>
+    <%= content_tag :td, l(@event.date) %>
+    <%= content_tag :td, l(@event.deadline) %>
   </tr>
 </table> 
 
-
-<p><%= button_to('参加') %></p>
+<br>
+<%= form_tag(action: :join, method: :post) do %>
+  <%= text_field 'participant', 'name' %>
+  <%= hidden_field 'event', 'id', :value => @event.id %>
+  <%= button_tag('参加する') %>
+<% end %>
+<br>
 
 <table border="1">
 <th>参加者</th>
@@ -22,6 +27,7 @@
   <% @participants.each do |participant| %>
     <tr>
       <%= content_tag :td, participant.user_name %>
+      <%= content_tag :td, participant.status %>
     </tr>
   <% end %>  
 </table>

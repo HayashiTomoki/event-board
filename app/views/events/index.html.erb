@@ -9,8 +9,8 @@
   <% @events.each_with_index do |event, i| %>
   <tr>
     <%= content_tag :td, h(event.title) %>
-    <%= content_tag :td, event.date.strftime('%Y年%m月%d日 %H時%M分') %>
-    <%= content_tag :td, event.deadline.strftime('%Y年%m月%d日 %H時%M分') %>
+    <%= content_tag :td, l(event.date) %>
+    <%= content_tag :td, l(event.deadline) %>
     <td><%= link_to('詳細', event_path(event.id)) %></td>
   </tr>
   <% end %>

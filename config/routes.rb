@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :events
 
+  post 'events/join' => 'events#join'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
