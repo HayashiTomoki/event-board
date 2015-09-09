@@ -2,6 +2,17 @@
 <div>
   <div class="title">イベント作成</div>
 
+<% if @event.errors.any? %>
+  <div id="error_explanation">
+  <h3><%= @event.errors.count %>件のエラーがあります。</h3>
+  <ul>
+  <% @event.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
   <%= form_for @event, :html => {:class => 'pure-form'} do |f| %>
 
   	<div>
