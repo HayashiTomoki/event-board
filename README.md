@@ -24,7 +24,7 @@
 ### Events
 |カラム名 |型      |その他|
 |:-------:|:------:|:---------:|
-|id       |INTEGER |PRIMARY KEY|
+|id       |integer |PRIMARY KEY|
 |title    |varchar ||
 |date     |varchar ||
 |deadline |datetime||
@@ -34,9 +34,10 @@
 ### Participants
 |カラム名 |型      |その他|
 |:-------:|:------:|:---------:|
-|id       |INTEGER |PRIMARY KEY|
-|event_id |INTEGER ||
-|user_id  |INTEGER ||
+|id       |integer |PRIMARY KEY|
+|event_id |integer ||
+|user_id  |integer ||
+|user_name|varchar ||
 |status   |enum    ||
 |create_at|datetime||
 |update_at|datetime||
@@ -44,5 +45,5 @@
 ### Users
 |カラム名 |型      |その他|
 |:-------:|:------:|:---------:|
-|id       |INTEGER |PRIMARY KEY|
+|id       |integer |PRIMARY KEY|
 |name     |varchar ||
