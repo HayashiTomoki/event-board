@@ -7,35 +7,52 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Event.create(
-  :title    => 'event1',
-  :owner    => 'owner1',
-  :date     => '2015-10-25 00:00:00',
-  :deadline => '2015-10-30 00:00:00',
-  :detail   => 'text text text text'
+  :title     => 'event1',
+  :owner     => 'owner1',
+  :date      => '2015-10-25 00:00:00',
+  :deadline  => '2015-10-30 00:00:00',
+  :detail    => 'text text text text'
 )
 Event.create(
-  :title    => 'event2',
-  :owner    => 'owner2',
-  :date     => '2015-11-25 00:00:00',
-  :deadline => '2015-11-30 00:00:00',
-  :detail   => 'text text text text'
+  :title     => 'event2',
+  :owner     => 'owner2',
+  :date      => '2015-11-25 00:00:00',
+  :deadline  => '2015-11-30 00:00:00',
+  :detail    => 'text text text text'
 )
 Event.create(
-  :title    => 'event3',
-  :owner    => 'owner3',
-  :date     => '2015-12-25 00:00:00',
-  :deadline => '2015-12-30 00:00:00',
-  :detail   => 'text text text text'
-)
-Participant.create(
-  :event_id => 1,
-  :user_id   => 1,
-  :user_name => 'userName1',
-)
-Participant.create(
-  :event_id => 1,
-  :user_id   => 2,
-  :user_name => 'userName2',
-  :status => :ancelled,
+  :title     => 'event3',
+  :owner     => 'owner3',
+  :date      => '2015-12-25 00:00:00',
+  :deadline  => '2015-12-30 00:00:00',
+  :detail    => 'text text text text'
 )
 
+Participant.create(
+  :event_id  => 1,
+  :user_id   => 1,
+  :user_name => 'TOM',
+  :status    => :unanswered,
+)
+Participant.create(
+  :event_id  => 1,
+  :user_id   => 2,
+  :user_name => 'BOB',
+  :status    => :unanswered,
+)
+Participant.create(
+  :event_id  => 1,
+  :user_id   => 3,
+  :user_name => 'JACK',
+  :status    => :cancelled,
+)
+
+User.create(
+  :name      => 'TestUser1'
+)
+User.create(
+  :name      => 'TestUser2'
+)
+User.create(
+  :name      => 'TestUser3'
+)
