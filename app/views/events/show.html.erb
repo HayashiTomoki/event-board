@@ -20,13 +20,13 @@
 <table border="1">
 <th>参加者</th>
   </tr>
-  <% @participated_users.each do |user| %>
+  <% @participated_users.each do |participanted_user| %>
     <tr>
-      <td><%= user.user_name %></td>
+      <td><%= participanted_user.user_name %></td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= hidden_field 'participant', 'user_id', :value => participanted_user.user_id %>
           <%= button_tag('キャンセル') %>
         <% end %>
       </td>
@@ -37,13 +37,13 @@
 <table border="1">
 <th>不参加者</th>
   </tr>
-  <% @cancelled_users.each do |user| %>
+  <% @cancelled_users.each do |cancelled_user| %>
     <tr>
-      <td><%= user.user_name %></td>
+      <td><%= cancelled_user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= hidden_field 'participant', 'user_id', :value => cancelled_user.user_id %>
           <%= button_tag('参加') %>
         <% end %>
       </td>
@@ -54,20 +54,20 @@
 <table border="1">
 <th>未回答者</th>
   </tr>
-  <% @unanswered_users.each do |user| %>
+  <% @unanswered_users.each do |unanswered_user| %>
     <tr>
-      <td><%= user.user_name %></td>
+      <td><%= unanswered_user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= hidden_field 'participant', 'user_id', :value => unanswered_user.user_id %>
           <%= button_tag('参加') %>
         <% end %>
       </td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
           <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= hidden_field 'participant', 'user_id', :value => unanswered_user.user_id %>
           <%= button_tag('不参加') %>
         <% end %>
       </td>

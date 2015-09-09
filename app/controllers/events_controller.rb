@@ -28,13 +28,15 @@ class EventsController < ApplicationController
   end
 
   def join
-    @participant = Participant.find(params[:participant][:user_id])
+    @participants = Participant.where(user_id: params[:participant][:user_id])
+    @participant = @participants.find_by(event_id: params[:event][:id])
     @participant.update(status: 'participated')
     redirect_to :back 
   end
 
   def cancel 
-    @participant = Participant.find(params[:participant][:user_id])
+    @participants = Participant.where(user_id: params[:participant][:user_id])
+    @participant = @participants.find_by(event_id: params[:event][:id])
     @participant.update(status: 'cancelled')
     redirect_to :back 
   end
