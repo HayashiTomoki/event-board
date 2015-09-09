@@ -36,6 +36,12 @@ class EventsController < ApplicationController
    redirect_to :back 
   end
 
+  def cancel 
+   @participant = Participant.find(params[:participant][:user_id])
+   @participant.update(status: 'cancelled')
+   redirect_to :back 
+  end
+
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。
   private
