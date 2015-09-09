@@ -22,14 +22,17 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participants = @event.participants
+
+    @participated_user = @participants.where(status: "participated")
+    @cancelled_user = @participants.where(status: "cancelled")
+    @unanswered_user = @participants.where(status: "unanswered")
+
+    @users = User.all
   end
 
   def join
-   @participant = Participant.new
-   @participant.event_id = params[:event][:id]
-   @participant.user_name = params[:participant][:name]
-   @participant.status = 'participated' 
-   @participant.save
+   @participant = Participant.find(params[:participant][:user_id])
+   @participant.update(status: 'participated')
    redirect_to :back 
   end
 

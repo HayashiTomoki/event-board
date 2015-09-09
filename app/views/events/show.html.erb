@@ -17,8 +17,9 @@
 
 <br>
 <%= form_tag(action: :join, method: :post) do %>
-  <%= text_field 'participant', 'name' %>
+  <%= collection_select(:participant, :name, @users, :id, :name) %>
   <%= hidden_field 'event', 'id', :value => @event.id %>
+  <%= hidden_field 'participant', 'user_id', :value => 1 %>
   <%= button_tag('参加する') %>
 <% end %>
 <br>
@@ -26,11 +27,55 @@
 <table border="1">
 <th>参加者</th>
   </tr>
-  <% @participants.each_with_index do |participant, i| %>
+  <% @participated_user.each_with_index do |user, i| %>
     <tr>
-      <%= content_tag :td, @participants[0].user.name %>
-      <%= content_tag :td, participant.status %>
+      <td><%= user.status %></td>
+      <td>
+        <%= form_tag(action: :join, method: :post) do %>
+          <%= hidden_field 'event', 'id', :value => @event.id %>
+          <%= button_tag('キャンセル') %>
+        <% end %>
+      </td>
     </tr>
   <% end %>  
 </table>
 
+<table border="1">
+<th>不参加者</th>
+  </tr>
+  <% @cancelled_user.each_with_index do |user, i| %>
+    <tr>
+      <td><%= user.status %></td>
+      <td>
+        <%= form_tag(action: :join, method: :post) do %>
+          <%= hidden_field 'event', 'id', :value => @event.id %>
+          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= button_tag('参加') %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>  
+</table>
+
+<table border="1">
+<th>未回答者</th>
+  </tr>
+  <% @unanswered_user.each_with_index do |user, i| %>
+    <tr>
+      <td><%= user.status %></td>
+      <td>
+        <%= form_tag(action: :join, method: :post) do %>
+          <%= hidden_field 'event', 'id', :value => @event.id %>
+          <%= hidden_field 'participant', 'user_id', :value => user.user_id %>
+          <%= button_tag('参加') %>
+        <% end %>
+      </td>
+      <td>
+        <%= form_tag(action: :join, method: :post) do %>
+          <%= hidden_field 'event', 'id', :value => @event.id %>
+          <%= button_tag('不参加') %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>  
+</table>

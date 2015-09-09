@@ -27,17 +27,32 @@ Event.create(
   :deadline  => '2015-12-30 00:00:00',
   :detail    => 'text text text text'
 )
+
 Participant.create(
   :event_id  => 1,
   :user_id   => 1,
   :user_name => 'userName1',
+  :status    => :unanswered,
 )
 Participant.create(
   :event_id  => 1,
   :user_id   => 2,
   :user_name => 'userName2',
-  :status    => :ancelled,
+  :status    => :unanswered,
+)
+Participant.create(
+  :event_id  => 1,
+  :user_id   => 3,
+  :user_name => 'userName2',
+  :status    => :cancelled,
+)
+
+User.create(
+  :name      => 'TestUser1'
 )
 User.create(
-  :name      => 'TestUser'
+  :name      => 'TestUser2'
+)
+User.create(
+  :name      => 'TestUser3'
 )
