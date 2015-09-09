@@ -2,13 +2,11 @@
 
 <table border="1">
   <tr>
-    <th>主催者</th>
     <th>イベント詳細</th>
     <th>開催日</th>
     <th>参加期限</th>
   </tr>
   <tr>
-    <%= content_tag :td, @event.owner %>
     <%= content_tag :td, @event.detail %>
     <%= content_tag :td, l(@event.date) %>
     <%= content_tag :td, l(@event.deadline) %>
