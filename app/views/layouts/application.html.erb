@@ -5,12 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
-  <h1>Event Board</h1>
-    <%= link_to("イベント一覧", events_path) %>
-    <%= link_to("イベント追加", new_event_path) %>
+  <div class="header">
+  <div>
+	<span class="header-title">Event Board</span>
+	<span class="header-menu">
+	    <%= link_to("イベント一覧", events_path , { :class => "pure-button" })  %>
+	    <%= link_to("イベント追加", new_event_path ,{ :class => "pure-button" }) %>
+	    <%= link_to("メンバー追加", '#' ,{ :class => "pure-button" }) %>
+	</span>
+  </div>
+  </div>
 </header>
 
 <%= yield %>

@@ -15,16 +15,17 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
-    @events = @events.order("date")
+    from = Time.now.at_beginning_of_day
+    to   = from + 1.year
+    @events = Event.where(date: (from...to)).order("date")
   end
 
   def show
-    @event = Event.find(params[:id])
-    @participants = @event.participants
-    @participated_users = @participants.where(status: 'participated')
-    @cancelled_users = @participants.where(status: 'cancelled')
-    @unanswered_users = @participants.where(status: 'unanswered')
+     @event = Event.find(params[:id])
+     @participants = @event.participants
+     @participated_users = @participants.where(status: 'participated')
+     @cancelled_users = @participants.where(status: 'cancelled')
+     @unanswered_users = @participants.where(status: 'unanswered')
   end
 
   def join

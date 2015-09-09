@@ -1,33 +1,38 @@
-<h2>イベント作成ページ</h2>
+<div class="main">
+<div>
+  <div class="title">イベント作成</div>
 
-<%= form_for @event do |f| %>
+  <%= form_for @event, :html => {:class => 'pure-form'} do |f| %>
 
-	<div>
-    	<%= f.label :title, "タイトル" %>
-    	<%= f.text_field :title %>
- 	</div>
+  	<div>
+      	<%= f.label :title, "タイトル" %>
+      	<%= f.text_field :title %>
+   	</div>
 
-	<div>
-    	<%= f.label :owner, "主催者" %>
-    	<%= f.text_field :owner %>
-	</div>
+  	<div>
+      	<%= f.label :owner, "主催者　" %>
+      	<%= f.text_field :owner %>
+  	</div>
 
-	<div>
-    	<%= f.label :date, "開催日" %>
-    	<%= f.datetime_select :date %>
-	</div>
+  	<div>
+      	<%= f.label :date, "開催日　" %>
+      	<%= f.datetime_select :date %>
+  	</div>
 
-	<div>
-    	<%= f.label :deadline, "期限" %>
-    	<%= f.datetime_select :deadline %>
-	</div>
+  	<div>
+      	<%= f.label :deadline, "期限　　" %>
+      	<%= f.datetime_select :deadline %>
+  	</div>
 
-  <div>
-      <%= f.label :detail, "詳細" %>
-      <%= f.text_area :detail ,size: "100x10"%>
-  </div>
-  
-	<div>
-    	<%= f.submit "作成する" %>
-  </div>
-<% end %>
+    <div>
+        <%= f.label :detail, "詳細　　" %>
+        <%= f.text_area :detail ,size: "60x5"%>
+    </div>
+    
+    <br>
+  	<div class="center">
+      	<%= f.submit :class => 'pure-button'%>
+    </div>
+  <% end %>
+</div>
+</div>
