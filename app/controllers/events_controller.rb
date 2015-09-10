@@ -14,6 +14,12 @@ class EventsController < ApplicationController
 	  end
   end
 
+  def destroy 
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to :back 
+  end
+
   def index
     from = Time.now.at_beginning_of_day
     to   = from + 1.year
