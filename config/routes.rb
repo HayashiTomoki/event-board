@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   resources :events
 
   post 'events/join' => 'events#join'
