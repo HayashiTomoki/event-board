@@ -6,6 +6,13 @@ class EventsController < ApplicationController
   def create
 	 @event = Event.new(event_params)
 	  if @event.save
+        
+        #作成したイベントにuser全員を未回答で追加
+        @users = User.all
+        @users.each_with_index do |user|
+          @event.participants.create(user_id: user.id, user_name: user.user_name)
+        end
+
 	    redirect_to events_path
 	    notify_to_slack
 	  else
