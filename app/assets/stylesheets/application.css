@@ -22,7 +22,7 @@
 	background-color:  #f0fff0;
 }  
 .main div   {  
-    width: 80%;  
+    width: 90%;  
 /*    border: 1px solid #FF0000;  */
     margin: 0px auto;
 }  
@@ -36,26 +36,49 @@
   	top: 0;  
     left: 0; 
 	z-index: 999;
-/*	box-shadow: 0px 2px 10px rgba(0,0,0,0.4);	*/
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.4);	
 }
 
 .header div {
     width: 80%;  
 /*    border: 1px solid #FF0000;  */
-    margin: 18px auto; 
+    margin: 18px auto;
 
 }
 
 .header-title {
 	vertical-align: middle;
-	font-size: 30px;
+	font-size: 35px;
+	top: 10px;
 	font-weight: bold;
-	color : darkgreen;
+	color : lightcyan;
+	float: left;
 }
 
 .header-menu {
 	float :right;
+	top:50px;
+}
+
+.footer {
+	padding :0px;
+	background-color : white;
+	height: 50px;
+	width : 100%;
+}
+
+.footer-title{
 	vertical-align: middle;
+	font-size: 35px;
+	top: 10px;
+	font-weight: bold;
+	color : darkgreen;
+}
+
+.footer div {
+    width: 80%;  
+/*    border: 1px solid #FF0000;  */
+    margin: 18px auto; 
 }
 
 .title {
@@ -66,17 +89,27 @@
 	
 }
 
-table {
+table{
+	background-color: white;
+}
+
+.center{
 	margin: 0 auto; 
 	text-align:center;
 }
 
-.center{
-	text-align:center;
+.button-in {
+	background: #f08080 !important;
 }
 
-.button-red {
-  background: rgb(202, 60, 60) !important; /* this is a maroon */
-  color: #fff !important;
+.button-out {
+	background: #add8e6 !important;
 }
 
+.button-green {
+	background: #b0c4de !important;
+}
+
+.comment {
+	padding: 30px;
+}
