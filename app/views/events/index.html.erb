@@ -11,7 +11,7 @@
     </tr>
     <% @events.each_with_index do |event, i| %>
     <tr>
-      <td><%= h(event.title) %></td>
+      <td><%= event.title %></td>
       <td><%= l(event.date) %></td>
       <td><%= l(event.deadline) %></td>
       <td><%= link_to('詳細', event_path(event.id), :class => 'button-success pure-button') %></td>

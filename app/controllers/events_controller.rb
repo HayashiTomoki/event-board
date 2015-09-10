@@ -34,6 +34,7 @@ class EventsController < ApplicationController
 	    render 'edit'
 	  end
   end
+
   def index
     from = Time.now.at_beginning_of_day
     to   = from + 1.year
