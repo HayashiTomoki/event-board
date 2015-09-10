@@ -96,8 +96,16 @@
 <table>
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.user_name %></td>
+    <td>投稿者名:<%= comment.user_name %></td>
+  </tr>
+  <tr>
+    <td>投稿日：<%= l(comment.created_at) %></td>
+  </tr>
+  <tr>
     <td><%= comment.text %></td>
+  </tr>
+  <tr>
+    <td>------------------------------------------------------------------</td>
   </tr>
 <% end %>
 </table>
