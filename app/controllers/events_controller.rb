@@ -26,6 +26,8 @@ class EventsController < ApplicationController
      @participated_users = @participants.where(status: 'participated')
      @cancelled_users = @participants.where(status: 'cancelled')
      @unanswered_users = @participants.where(status: 'unanswered')
+
+     @comments = @event.comments 
   end
 
   def join
@@ -41,6 +43,16 @@ class EventsController < ApplicationController
     @participant.update(status: 'cancelled')
     redirect_to :back 
   end
+
+  def add_comment
+    @comment = Comment.new
+    @comment.event_id = params[:event][:id]
+    @comment.user_name = params[:comment][:user_name]
+    @comment.text = params[:comment][:text]
+    @comment.save
+    redirect_to :back 
+  end
+
 
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。

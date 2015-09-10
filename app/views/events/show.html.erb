@@ -2,14 +2,16 @@
 
 <table border="1">
   <tr>
+    <th>主催者</th>
     <th>イベント詳細</th>
     <th>開催日</th>
     <th>参加期限</th>
   </tr>
   <tr>
-    <%= content_tag :td, @event.detail %>
-    <%= content_tag :td, l(@event.date) %>
-    <%= content_tag :td, l(@event.deadline) %>
+    <td><%= @event.owner %></td>
+    <td><%= @event.detail %></td>
+    <td><%= l(@event.date) %></td>
+    <td><%= l(@event.deadline) %></td>
   </tr>
 </table> 
 
@@ -23,8 +25,8 @@
       <td><%= participanted_user.user_name %></td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
-          <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => participanted_user.user_id %>
+          <%= hidden_field('event', 'id', :value => @event.id) %>
+          <%= hidden_field('participant', 'user_id', :value => participanted_user.user_id) %>
           <%= button_tag('キャンセル') %>
         <% end %>
       </td>
@@ -40,8 +42,8 @@
       <td><%= cancelled_user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
-          <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => cancelled_user.user_id %>
+          <%= hidden_field('event', 'id', :value => @event.id) %>
+          <%= hidden_field('participant', 'user_id', :value => cancelled_user.user_id)%>
           <%= button_tag('参加') %>
         <% end %>
       </td>
@@ -57,18 +59,45 @@
       <td><%= unanswered_user.user_name %></td>
       <td>
         <%= form_tag(action: :join, method: :post) do %>
-          <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => unanswered_user.user_id %>
+          <%= hidden_field('event', 'id', :value => @event.id) %>
+          <%= hidden_field('participant', 'user_id', :value => unanswered_user.user_id) %>
           <%= button_tag('参加') %>
         <% end %>
       </td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
-          <%= hidden_field 'event', 'id', :value => @event.id %>
-          <%= hidden_field 'participant', 'user_id', :value => unanswered_user.user_id %>
+          <%= hidden_field('event', 'id', :value => @event.id) %>
+          <%= hidden_field('participant', 'user_id', :value => unanswered_user.user_id) %>
           <%= button_tag('不参加') %>
         <% end %>
       </td>
     </tr>
   <% end %>  
+</table>
+
+<%= form_tag(action: :add_comment, method: :post) do %>
+  <%= hidden_field('event', 'id', :value => @event.id) %>
+
+  <div>
+  <%= label :user_name, '名前'%>
+  <%= text_field('comment', 'user_name') %>
+  </div>
+
+  <div>
+  <%= label :text, 'コメント'%>
+  <%= text_area('comment', 'text') %>
+  </div>
+
+  <div>
+  <%= button_tag('コメント') %>
+  </div>
+<% end %>
+
+<table>
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.user_name %></td>
+    <td><%= comment.text %></td>
+  </tr>
+<% end %>
 </table>

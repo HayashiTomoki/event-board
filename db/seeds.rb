@@ -10,21 +10,21 @@ Event.create(
   :title    => 'event1',
   :owner    => 'owner1',
   :date     => '2015-10-25 00:00:00',
-  :deadline => '2015-10-30 00:00:00',
+  :deadline => '2015-10-20 00:00:00',
   :detail   => 'text text text text'
 )
 Event.create(
   :title    => 'event2',
   :owner    => 'owner2',
   :date     => '2015-11-25 00:00:00',
-  :deadline => '2015-11-30 00:00:00',
+  :deadline => '2015-11-20 00:00:00',
   :detail   => 'text text text text'
 )
 Event.create(
   :title    => 'event3',
   :owner    => 'owner3',
   :date     => '2015-12-25 00:00:00',
-  :deadline => '2015-12-30 00:00:00',
+  :deadline => '2015-12-20 00:00:00',
   :detail   => 'text text text text'
 )
 Participant.create(
@@ -84,3 +84,8 @@ Participant.create(
   :status    => :unanswered,
 )
 
+Comment.create(
+  :event_id  => 1,
+  :user_name => 'JACK',
+  :text => 'comment comment comment',
+)
