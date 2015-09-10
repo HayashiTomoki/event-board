@@ -1,0 +1,54 @@
+<div class="main">
+<div>
+  <div class="title">イベント編集・削除</div>
+
+<% if @event.errors.any? %>
+  <div id="error_explanation">
+  <h3><%= @event.errors.count %>件のエラーがあります。</h3>
+  <ul>
+  <% @event.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
+  <%= form_for @event, :html => {:class => 'pure-form'} do |f| %>
+
+  	<div>
+      	<%= f.label :title, "タイトル" %>
+      	<%= f.text_field :title %>
+   	</div>
+
+  	<div>
+      	<%= f.label :owner, "主催者　" %>
+      	<%= f.text_field :owner %>
+  	</div>
+
+  	<div>
+      	<%= f.label :date, "開催日　" %>
+      	<%= f.datetime_select :date %>
+  	</div>
+
+  	<div>
+      	<%= f.label :deadline, "期限　　" %>
+      	<%= f.datetime_select :deadline %>
+  	</div>
+
+    <div>
+        <%= f.label :detail, "詳細　　" %>
+        <%= f.text_area :detail ,size: "60x5"%>
+    </div>
+    
+    <br>
+  	<div class="center">
+      	<%= f.submit :class => 'pure-button'%>
+    </div>
+
+    <br>
+  	<div class="center">
+        <%= link_to('イベントを削除', event_path(@event.id), method: :DELETE, data: { confirm: '本当にイベントを削除しますか？' }, :class => 'button-red pure-button')%></td>
+  <% end %>
+    </div>
+</div>
+</div>
