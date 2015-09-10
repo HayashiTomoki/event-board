@@ -1,0 +1,23 @@
+<div class="main">
+  <div>
+  <div class="title">過去イベント一覧</div>
+  <table class="pure-table pure-table-bordered pure-table-striped center">
+    <tr>
+      <th>イベント名</th>
+      <th>開催日</th>
+      <th>参加期限</th>
+      <th>参加人数</th>
+      <th></th>
+    </tr>
+    <% @events.each_with_index do |event, i| %>
+    <tr>
+    <td><%= event.title %></td>
+    <td><%= l(event.date) %></td>
+    <td><%= l(event.deadline) %></td>
+      <td><%= event.participants.count %></td>
+      <td><%= link_to('詳細', event_path(event.id),:class => 'button-in pure-button') %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+</div>

@@ -51,6 +51,11 @@ class EventsController < ApplicationController
     @events = Event.where(date: (from...to)).order("date")
   end
 
+  def get_old_event
+    now = Time.now
+    @events = Event.where("date < ?", now).reorder("date DESC")
+  end 
+
   def show
      @event = Event.find(params[:id])
      @participants = @event.participants

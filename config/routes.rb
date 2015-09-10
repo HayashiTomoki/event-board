@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :events
 
+  get  'old_events' => 'events#get_old_event'
   post 'events/join' => 'events#join'
   post 'events/cancel' => 'events#cancel'
   post 'events/add_comment' => 'events#add_comment'
