@@ -1,35 +1,45 @@
 <div class="main">
+  <div>
   <div class="title">メンバー追加</div>
-  <table class="pure-table pure-table-bordered pure-table-striped">
-
   <%= form_for @user, :html => {:class => 'pure-form'} do |f| %>
 
-  	<div>
-      	<%= f.label :title, "メンバー名" %>
+  	<div class="center">
+      	<%= f.label :title, "メンバー名　" %>
       	<%= f.text_field :user_name %>
    	</div>
 
-  	<div>
-      	<%= f.label :owner, "Slack ID" %>
+  	<div class="center">
+      	<%= f.label :owner, "Slack ID　@" %>
       	<%= f.text_field :slack_id %>
   	</div>
+    <br>
     <div class="center">
-      	<%= f.submit :class => 'pure-button'%>
+      	<%= f.submit :class => 'button-green pure-button'%>
   	</div>
   <% end %>
 
   <br>
   <br>
   <br>
-  
+  <div class="title">メンバーリスト</div>
+
+  <table class="pure-table pure-table-bordered pure-table-striped center">
+  <tr>
+    <td>名前</td>
+    <td>SlackID</td>
+    <td></td>
+  </tr>
   <% @users.each do |user| %>
+    
     <tr>
       <td><%= user.user_name %></td>
       <td><%= user.slack_id %></td>
       <td>
-        <%= link_to('削除', user_path(user.id), method: :DELETE, data: { confirm: '本当にこのメンバーを削除しますか？' }, :class => 'button-red pure-button')%></td>
+        <%= link_to('削除', user_path(user.id), method: :DELETE, data: { confirm: '本当にこのメンバーを削除しますか？' }, :class => 'button-pink pure-button')%></td>
       </td>
     <tr>
   <% end %>
   </table>
+  </tr>
+  </div>
 </div>

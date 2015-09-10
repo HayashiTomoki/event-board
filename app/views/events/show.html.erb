@@ -5,19 +5,28 @@
 <table class="pure-table pure-table-bordered pure-table-striped center">
   <tr>
     <th>主催者</th>
-    <th>イベント詳細</th>
     <th>開催日</th>
     <th>参加期限</th>
     <th></th>
   </tr>
   <tr>
     <td><%= @event.owner %></td>
-    <td><%= markdown @event.detail %></td>
     <td><%= l(@event.date) %></td>
     <td><%= l(@event.deadline) %></td>
-    <td><%= link_to('削除・編集', edit_event_path(@event.id), :class => 'button-success pure-button') %></td>
+    <td><%= link_to('削除・編集', edit_event_path(@event.id), :class => 'button-pink pure-button') %></td>
   </tr>
 </table> 
+
+<br>
+
+<table class="pure-table pure-table-striped center_mergin">
+  <tr>
+  <td><b>詳細</b></td>
+  </tr>
+  <tr>
+  <td><%= markdown @event.detail %></td>
+  </tr>
+</table>
 
 <br>
 
@@ -99,9 +108,9 @@
   <%= label :text, 'コメント'%>
   <%= text_area('comment', 'text' ,size: "60x5") %>
   </div>
-
+  <br>
   <div>
-  <%= button_tag('投稿する',:class => "pure-button")%>
+  <%= button_tag('投稿する',:class => "button-green pure-button")%>
   </div>
 <% end %>
 
@@ -110,7 +119,6 @@
 
   <% @comments.each do |comment| %>
     <table class="pure-table pure-table-bordered pure-u-1-2 center">
-<!--     <tbody class="pure-u-23-24"> -->
     <tr class="pure-table-odd">
       <td>投稿者:<%= comment.user_name %></td>
     </tr>
