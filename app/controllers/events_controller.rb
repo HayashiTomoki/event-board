@@ -17,9 +17,23 @@ class EventsController < ApplicationController
   def destroy 
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to :back 
+    redirect_to events_path
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update 
+	 @event = Event.find(params[:id])
+	  if @event.update(event_params)
+	    redirect_to events_path
+	    notify_to_slack
+	  else
+	    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+	    render 'edit'
+	  end
+  end
   def index
     from = Time.now.at_beginning_of_day
     to   = from + 1.year

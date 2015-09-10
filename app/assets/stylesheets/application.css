@@ -75,5 +75,8 @@ table {
 	text-align:center;
 }
 
-
+.button-red {
+  background: rgb(202, 60, 60) !important; /* this is a maroon */
+  color: #fff !important;
+}
 
