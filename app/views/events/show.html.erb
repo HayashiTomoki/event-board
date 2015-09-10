@@ -24,7 +24,7 @@
   </tr>
   <% @participated_users.each do |participanted_user| %>
     <tr>
-      <td><%= participanted_user.user_name %></td>
+      <td><%= participanted_user.user.user_name %></td>
       <td>
         <%= form_tag(action: :cancel, method: :post) do %>
           <%= hidden_field('event', 'id', :value => @event.id) %>
