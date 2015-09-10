@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td><%= @event.owner %></td>
-    <td><%= @event.detail %></td>
+    <td><%= markdown @event.detail %></td>
     <td><%= l(@event.date) %></td>
     <td><%= l(@event.deadline) %></td>
     <td><%= link_to('削除・編集', edit_event_path(@event.id), :class => 'button-success pure-button') %></td>
@@ -118,7 +118,7 @@
       <td class="pure-table-odd">投稿日：<%= l(comment.created_at) %></td>
     </tr>
     <tr>
-      <td><%= comment.text %></td>
+      <td><%= markdown comment.text %></td>
     </tr>
     </tbody>
     </table>
