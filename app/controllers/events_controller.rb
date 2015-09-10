@@ -4,21 +4,24 @@ class EventsController < ApplicationController
   end
 
   def create
-	 @event = Event.new(event_params)
-	  if @event.save
+	@event = Event.new(event_params)
+    Event.transaction do
+	  @event.save!
         
-        #作成したイベントにuser全員を未回答で追加
-        @users = User.all
-        @users.each_with_index do |user|
-          @event.participants.create(user_id: user.id, user_name: user.user_name)
-        end
+      #作成したイベントにuser全員を未回答で追加
+      @users = User.all
+      @users.each_with_index do |user|
+        @event.participants.create!(user_id: user.id)
+      end
+    end
 
-	    redirect_to events_path
-	    notify_to_slack
-	  else
-	    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
-	    render 'new'
-	  end
+    #例外が発生しなかった場合の処理
+    redirect_to events_path
+	notify_to_slack
+ 
+    rescue => e
+	# ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+	render 'new'
   end
 
   def index
