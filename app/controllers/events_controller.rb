@@ -10,7 +10,7 @@ class EventsController < ApplicationController
         
       #作成したイベントにuser全員を未回答で追加
       @users = User.all
-      @users.each_with_index do |user|
+      @users.each do |user|
         @event.participants.create!(user_id: user.id)
       end
     end
