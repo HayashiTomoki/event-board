@@ -7,13 +7,15 @@
       <th>開催日</th>
       <th>参加期限</th>
       <th></th>
+      <th></th>
     </tr>
     <% @events.each_with_index do |event, i| %>
     <tr>
-    <td><%= h(event.title) %></td>
-    <td><%= l(event.date) %></td>
-    <td><%= l(event.deadline) %></td>
-      <td><%= link_to('詳細', event_path(event.id),:class => 'button-success pure-button') %></td>
+      <td><%= event.title %></td>
+      <td><%= l(event.date) %></td>
+      <td><%= l(event.deadline) %></td>
+      <td><%= link_to('詳細', event_path(event.id), :class => 'button-success pure-button') %></td>
+      <td><%= link_to('削除・編集', edit_event_path(event.id), :class => 'button-success pure-button') %></td>
     </tr>
     <% end %>
   </table>

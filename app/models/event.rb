@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
-  has_many :participants
-  has_many :comments
+  has_many :participants, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   validates :title, presence: true
   validates :owner, presence: true
   validate :expiration_date_cannot_be_in_the_past, :reverse_date_and_deadline, :over_one_year_date
