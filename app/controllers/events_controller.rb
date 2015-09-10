@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   def update 
 	  @event = Event.find(params[:id])
 	  if @event.update(event_params)
-	    redirect_to events_path
+	    redirect_to event_path(params[:id])
 	    notify_to_slack
 	  else
 	    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
@@ -50,6 +50,11 @@ class EventsController < ApplicationController
     to   = from + 1.year
     @events = Event.where(date: (from...to)).order("date")
   end
+
+  def get_old_event
+    now = Time.now
+    @events = Event.where("date < ?", now).reorder("date DESC")
+  end 
 
   def show
      @event = Event.find(params[:id])

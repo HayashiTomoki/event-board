@@ -24,7 +24,7 @@
   <td><b>詳細</b></td>
   </tr>
   <tr>
-  <td><%= @event.detail %></td>
+  <td><%= markdown @event.detail %></td>
   </tr>
 </table>
 
@@ -126,7 +126,7 @@
       <td class="pure-table-odd">投稿日：<%= l(comment.created_at) %></td>
     </tr>
     <tr>
-      <td><%= comment.text %></td>
+      <td><%= markdown comment.text %></td>
     </tr>
     </tbody>
     </table>
