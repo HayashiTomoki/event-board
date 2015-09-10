@@ -89,3 +89,15 @@ Comment.create(
   :user_name => 'JACK',
   :text => 'comment comment comment',
 )
+User.create(
+  :user_name => 'mikan',
+  :slack_id  => 'mikan',
+)
+User.create(
+  :user_name => 'itigo',
+  :slack_id  => 'itigo',
+)
+User.create(
+  :user_name => 'nashi',
+  :slack_id  => 'nashi',
+)
