@@ -8,12 +8,14 @@
     <th>イベント詳細</th>
     <th>開催日</th>
     <th>参加期限</th>
+    <th></th>
   </tr>
   <tr>
     <td><%= @event.owner %></td>
     <td><%= @event.detail %></td>
     <td><%= l(@event.date) %></td>
     <td><%= l(@event.deadline) %></td>
+    <td><%= link_to('削除・編集', edit_event_path(@event.id), :class => 'button-success pure-button') %></td>
   </tr>
 </table> 
 
