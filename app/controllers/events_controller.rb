@@ -97,6 +97,25 @@ class EventsController < ApplicationController
     redirect_to :back 
   end
 
+  def new_slack_comment
+    @event = Event.find(params[:event][:id])
+    @participants = @event.participants
+    @status = params[:participant][:status]
+    @participants = @participants.where(status: @status)
+    text = ''
+    @participants.each do |participant|
+      user = User.find(participant.user_id)
+      text = text + '@' + user.slack_id + ': '
+    end
+    flash[:text] = text;
+
+  end
+
+  def create_slack_comment
+    text = params[:text][:body]
+    Slack.chat_postMessage text: text, username: "イベント通知bot", channel: "#general"
+    redirect_to events_path
+  end
 
   # Rails4からStrongParamaterと呼ばれる機能が追加されました。
   # セキュリティのため、permitメソッドで許可したパラメータ名しか取得できません。
