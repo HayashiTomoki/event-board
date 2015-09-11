@@ -42,12 +42,12 @@
     
     <br>
   	<div class="center">
-      	<%= f.submit :class => 'pure-button'%>
+      	<%= f.submit :class => 'pure-button button-yellow'%>
     </div>
 
     <br>
   	<div class="center">
-        <%= link_to('イベントを削除', event_path(@event.id), method: :DELETE, data: { confirm: '本当にイベントを削除しますか？' }, :class => 'button-red pure-button')%></td>
+        <%= link_to('イベントを削除', event_path(@event.id), method: :DELETE, data: { confirm: '本当にイベントを削除しますか？' }, :class => 'button-pink pure-button')%></td>
   <% end %>
     </div>
 </div>
