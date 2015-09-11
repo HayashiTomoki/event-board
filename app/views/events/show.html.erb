@@ -61,6 +61,13 @@
         </td>
       </tr>
     <% end %>  
+      <tr><td>
+        <%= form_tag({action: :new_slack_comment},{class: "pure-form center form" }) do %>
+        <%= hidden_field('event', 'id', :value => @event.id) %>
+        <%= hidden_field('participant', 'status', :value => 'participated' ) %>
+        <%= button_tag('参加者へのコメント',:class => "button-green pure-button")%>
+        <% end %>
+      </td></tr>
   </table>
   <br>
 
@@ -80,6 +87,13 @@
         </td>
       </tr>
     <% end %>  
+      <tr><td>
+        <%= form_tag({action: :new_slack_comment},{class: "pure-form center form" }) do %>
+        <%= hidden_field('event', 'id', :value => @event.id) %>
+        <%= hidden_field('participant', 'status', :value => 'cancelled' ) %>
+        <%= button_tag('未参加者へのコメント',:class => "button-green pure-button")%>
+        <% end %>
+      </td></tr>
   </table>
   <br>
 
@@ -106,11 +120,18 @@
         </td>
       </tr>
     <% end %>  
+      <tr><td>
+        <%= form_tag({action: :new_slack_comment},{class: "pure-form center form" }) do %>
+        <%= hidden_field('event', 'id', :value => @event.id) %>
+        <%= hidden_field('participant', 'status', :value => 'unanswered' ) %>
+        <%= button_tag('未回答者へのコメント',:class => "button-green pure-button")%>
+        <% end %>
+      </td></tr>
   </table>
 </div>
 
 <br>
-<HR size="2px">
+<hr size="2px">
 <div class="title">コメント欄</div>
 <%= form_tag({action: :add_comment},{class: "pure-form center" }) do %>
   <%= hidden_field('event', 'id', :value => @event.id) %>

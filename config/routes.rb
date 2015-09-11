@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post 'events/join' => 'events#join'
   post 'events/cancel' => 'events#cancel'
   post 'events/add_comment' => 'events#add_comment'
-
-
+  post 'new_slack_comment' => 'events#new_slack_comment'
+  post 'create_slack_comment' => 'events#create_slack_comment'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
