@@ -70,6 +70,7 @@ class EventsController < ApplicationController
     @participants = Participant.where(user_id: params[:participant][:user_id])
     @participant = @participants.find_by(event_id: params[:event][:id])
     @participant.update(status: 'participated')
+    flash[:change_participant] = @participant.user.user_name + 'さんを参加に変更しました' 
     redirect_to :back 
   end
 
@@ -77,6 +78,7 @@ class EventsController < ApplicationController
     @participants = Participant.where(user_id: params[:participant][:user_id])
     @participant = @participants.find_by(event_id: params[:event][:id])
     @participant.update(status: 'cancelled')
+    flash[:change_participant] = @participant.user.user_name + 'さんを不参加に変更しました' 
     redirect_to :back 
   end
 
