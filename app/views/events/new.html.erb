@@ -16,33 +16,33 @@
   <%= form_for @event, :html => {:class => 'pure-form'} do |f| %>
 
   	<div>
-      	<%= f.label :title, "タイトル" %>
+      	<%= f.label :title, "イベント名" %>
       	<%= f.text_field :title %>
    	</div>
 
   	<div>
-      	<%= f.label :owner, "主催者　" %>
+      	<%= f.label :owner, "主催者　　" %>
       	<%= f.text_field :owner %>
   	</div>
 
   	<div>
-      	<%= f.label :date, "開催日　" %>
+      	<%= f.label :date, "開催日　　" %>
       	<%= f.datetime_select :date %>
   	</div>
 
   	<div>
-      	<%= f.label :deadline, "期限　　" %>
+      	<%= f.label :deadline, "回答期限　" %>
       	<%= f.datetime_select :deadline %>
   	</div>
 
     <div>
-        <%= f.label :detail, "詳細　　" %>
+        <%= f.label :detail, "詳細　　　" %>
         <%= f.text_area :detail ,size: "60x5"%>
     </div>
     
     <br>
   	<div class="center">
-      	<%= f.submit :class => 'button-green pure-button'%>
+      	<%= f.submit :class => 'button-yellow pure-button'%>
     </div>
   <% end %>
 </div>
