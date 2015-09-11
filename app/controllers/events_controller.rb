@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
-  end.to_s(:db)
+  end
 
   def edit
     @event = Event.find(params[:id])
