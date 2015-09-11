@@ -113,6 +113,10 @@ table{
 	background-color: white;
 }
 
+th {
+	border-bottom: 1px solid #ccc !important;
+}
+
 .status th {
   border-bottom: 1px solid #ccc !important;
   width: 100%;
