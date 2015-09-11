@@ -7,12 +7,23 @@
     <th>主催者</th>
     <th>開催日</th>
     <th>回答期限</th>
+    <th>回答期限まで</th>
+    <th>参加人数</th>
     <th></th>
   </tr>
   <tr>
     <td><%= @event.owner %></td>
     <td><%= l(@event.date) %></td>
     <td><%= l(@event.deadline) %></td>
+    <td>
+      <% if ((@event.deadline - Time.now) > 0) then %> 
+        <%= ((@event.deadline - Time.now)/60/60/24).floor %>日
+        <%= (((@event.deadline - Time.now)/60/60).floor)%24 %>時間
+      <% else %>
+        締
+      <% end %>
+    </td>
+    <td><%= @event.participants.count %></td>
     <td><%= link_to('削除・編集', edit_event_path(@event.id), :class => 'button-pink pure-button') %></td>
   </tr>
 </table> 
@@ -28,6 +39,7 @@
 
 <br>
 <%= flash[:change_participant] %>
+<%= flash[:error] %>
 <br>
 <br>
 
