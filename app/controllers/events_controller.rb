@@ -61,7 +61,7 @@ class EventsController < ApplicationController
      @cancelled_users = @participants.where(status: 'cancelled')
      @unanswered_users = @participants.where(status: 'unanswered')
 
-     @comments = @event.comments 
+     @comments = @event.comments.order("created_at DESC") 
   end
 
   def join
