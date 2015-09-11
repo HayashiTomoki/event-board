@@ -17,85 +17,85 @@
 .main {  
   width: 100%;
 /*    border: 1px solid #000;  */
-	padding-top: 120px;
-	padding-bottom: 150px;
+  padding-top: 120px;
+  padding-bottom: 150px;
 }  
-.main div   {  
+.main > div   {  
   width: 90%;  
 /*    border: 1px solid #FF0000;  */
   margin: 0px auto;
 }
 
 body {
-	background-color:  #f0fff0;
+  background-color:  #f0fff0;
 }
 
 .header {
-	padding: 0px;
-	background-color: #3cb371;
-	height: 80px;
-	width: 100%;
+  padding: 0px;
+  background-color: #3cb371;
+  height: 80px;
+  width: 100%;
   position: fixed;
   top: 0;  
   left: 0; 
-	z-index: 999;
-	box-shadow: 0px 4px 10px rgba(0,0,0,0.4);	
+  z-index: 999;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.4);	
 }
 
 .header div {
-	position: relative;
+  position: relative;
   width: 90%;  
 /*    border: 1px solid #FF0000;  */
-   margin: 18px auto;
+  margin: 18px auto;
 }
 
 .header-title {
-	position: absolute;
-	display: inline;
-	vertical-align: middle;
-	font-size: 35px;
-	font-weight: bold;
-	color: darkgreen;
-	float: left;
+  position: absolute;
+  display: inline;
+  vertical-align: middle;
+  font-size: 35px;
+  font-weight: bold;
+  color: darkgreen;
+  float: left;
 }
 
 .header-menu {
-	float: right;
-	top: 50px;
+  float: right;
+  top: 50px;
 }
 
 .footer {
-	padding :0px;
-	background-color: white;
-	height: 50px;
-	width: 100%;
-	position: fixed;
+  padding :0px;
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  position: fixed;
   bottom: 0;  
   left: 0; 
-	z-index: 999;
-	box-shadow: 10px 0px 10px rgba(0,0,0,0.4);	
+  z-index: 999;
+  box-shadow: 10px 0px 10px rgba(0,0,0,0.4);	
 }
 
 .footer-title{
-	vertical-align: middle;
-	font-size: 20px;
-	font-weight: bold;
-	color : darkgreen;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+  color : darkgreen;
 }
 
-.footer div {
-  width: 80%;  
+.footer > div {
+  width: 90%;  
 /*    border: 1px solid #FF0000;  */
   margin: 18px auto;
   position: relative;
 }
 
 .copyright {
-	position: absolute;
-	right: 0;
-	font-size: 7px;
-	display: inline;
-	vertical-align: middle;
+  position: absolute;
+  right: 0;
+  font-size: 7px;
+  display: inline;
+  vertical-align: middle;
 }
 
 .copyright_icon {
@@ -103,9 +103,9 @@ body {
 }
 
 .title {
-	font-size: 25px;
-	text-align: center;
-	padding : 10px;
+  font-size: 25px;
+  text-align: center;
+  padding : 10px;
 	
 }
 
@@ -119,53 +119,63 @@ table{
 }
 
 .center{
-	margin: 0 auto; 
-	text-align: center;
+  margin: 0 auto; 
+  text-align: center;
 }
 
 .center_mergin {
-	margin: 0 auto; 
+  margin: 0 auto; 
 }
 
 .button-in {
-	background: #f08080 !important;
+  background: #f08080 !important;
 }
 
 .button-out {
-	background: #add8e6 !important;
+  background: #add8e6 !important;
 }
 
 .button-green {
-	background: lightseagreen !important;
+  background: lightseagreen !important;
 }
 
 .button-pink {
-	background: #cd5c5c !important;
+  background: #cd5c5c !important;
 }
 
 .button-yellow {
-	background: yellowgreen !important;
+  background: yellowgreen !important;
 }
 
 .status{
-	display: inline-block;
+  display: inline-block;
 }
 
 .status td{
   width: 100%;
 }
 .width-max {
-	width: 100%;
-	margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .comment {
-	width :60%;
-	margin: 20px auto; 
-	text-align: center;
+  width :60%;
+  margin: 20px auto; 
+  text-align: center;
 }
 
 .left {
-	text-align: left;
-	word-break: break-all;
+  text-align: left;
+  word-break: break-all;
+}
+
+.form-center{
+  width:60%;
+  margin: 0 auto; 
+}
+
+hr {
+	margin-top : 30px;
+	margin-bottom: 30px;
 }
