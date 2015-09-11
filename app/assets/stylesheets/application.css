@@ -93,6 +93,10 @@ body {
 	font-size: 7px;
 }
 
+.copyright_icon {
+  font-family: 'Times New Roman', 'Times';
+}
+
 .title {
 	font-size: 25px;
 	text-align:center;
