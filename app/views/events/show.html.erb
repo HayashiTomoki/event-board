@@ -29,6 +29,9 @@
 </table>
 
 <br>
+<%= flash[:change_participant] %>
+<br>
+<br>
 
 <div class="pure-g">
 
@@ -79,7 +82,6 @@
             <%= hidden_field('event', 'id', :value => @event.id) %>
             <%= hidden_field('participant', 'user_id', :value => unanswered_user.user_id) %>
             <%= button_tag('参加',:class => "button-in pure-button")%>
-
           <% end %>
         </td>
         <td>
