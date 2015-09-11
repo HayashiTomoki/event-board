@@ -26,7 +26,7 @@
           締
         <% end %>
       </td>
-      <td><%= event.participants.count %></td>
+      <td><%= event.participants.where(status: 'participated').count %></td>
       <td><%= link_to('詳細', event_path(event.id),:class => 'button-green pure-button') %></td>
       <td><%= link_to('削除・編集', edit_event_path(event.id), :class => 'button-pink pure-button') %></td>
     </tr>
