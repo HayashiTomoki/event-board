@@ -15,8 +15,8 @@
 	<span class="header-title">Event Board</span>
 	<span class="header-menu">
 	    <%= link_to("イベント一覧", events_path , { :class => "pure-button" })  %>
-	    <%= link_to("イベント追加", new_event_path ,{ :class => "pure-button" }) %>
-	    <%= link_to("メンバー追加", users_path ,{ :class => "pure-button" }) %>
+	    <%= link_to("イベント作成", new_event_path ,{ :class => "pure-button" }) %>
+	    <%= link_to("メンバー編集", users_path ,{ :class => "pure-button" }) %>
 	    <%= link_to("過去イベント", old_events_path ,{ :class => "pure-button" }) %>
 	</span>
   </div>
@@ -29,7 +29,7 @@
 	  <div class="footer">
   <div>
 	<span class="footer-title">EventBoard</span>
-	<span class="header-menu">copyright: FlickFriend inc　　　</span>
+	<span class="copyright">Copyright (C) 2015 FlickFriend All Rights Reserved.</span>
   </div>
   </div>
 </footer>

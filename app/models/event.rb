@@ -8,14 +8,14 @@ class Event < ActiveRecord::Base
 #開催日または参加期限は登録日以降になっているかの確認
   def expiration_date_cannot_be_in_the_past
     if date.present? && date < Date.today && deadline.present? && deadline < Date.today
-      errors.add(:date_expiration, "開催日または参加期限は本日以降にしてください")
+      errors.add(:date_expiration, "開催日または回答期限は本日以降にしてください")
     end
   end
 
 #参加期限と開催日が逆転していないかの確認
   def reverse_date_and_deadline
     if date < deadline
-      errors.add(:date_reverse ,"参加期限が開催日以降になっています")
+      errors.add(:date_reverse ,"回答期限が開催日以降になっています")
     end
   end
 

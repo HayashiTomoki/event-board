@@ -88,6 +88,11 @@ body {
     margin: 18px auto; 
 }
 
+.copyright {
+	float :right;
+	font-size: 7px;
+}
+
 .title {
 	font-size: 25px;
 	text-align:center;
@@ -123,4 +128,8 @@ table{
 
 .button-pink {
 	background: #cd5c5c !important;
+}
+
+.button-yellow {
+	background: yellowgreen !important;
 }
