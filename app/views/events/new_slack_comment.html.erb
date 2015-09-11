@@ -1,9 +1,7 @@
 <div class="main">
   <div class="title">Slackへのコメント</div>
     <%= form_tag({action: :create_slack_comment}, {class: "pure-form center" }) do %>
-      <textarea name="text[body]" id="text_body" rows="5" cols="60">
-        <%= flash[:text] %>
-      </textarea>
+      <textarea name="text[body]" id="text_body" rows="5" cols="60"><%= flash[:text] %></textarea>
       <div>
       <br>
       <%= button_tag('投稿する',:class => "button-yellow pure-button") %>
