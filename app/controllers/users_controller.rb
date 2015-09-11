@@ -6,8 +6,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
+    User.transaction do
+      @user.save!
+      @events = Event.where("date >= ?",Time.now.to_s(:db))
+      @events.each do |event|
+        event.participants.create!(user_id: @user.id)
+      end
+    end
+
+    #例外が発生しなかった場合の処理
     redirect_to users_path
+
   end
 
   def destroy
