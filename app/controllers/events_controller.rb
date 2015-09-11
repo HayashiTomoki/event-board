@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
-  end
+  end.to_s(:db)
 
   def edit
     @event = Event.find(params[:id])
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.where("date >= ?",Time.now ).order("date")
+    @events = Event.where("date >= ?",Time.now.to_s(:db) ).order("date")
   end
 
   def get_old_event
