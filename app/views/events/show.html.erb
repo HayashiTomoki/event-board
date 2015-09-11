@@ -42,9 +42,10 @@
 <%= flash[:error] %>
 <br>
 <br>
-
-  <table class="pure-table pure-table-bordered pure-table-striped center status">
+<div class="pure-g">
+  <table class="pure-table pure-table-bordered pure-table-striped center status pure-u-7-24">
   <th>参加者</th>
+  <th>　　　</th>
     </tr>
     <% @participated_users.each do |participanted_user| %>
       <tr>
@@ -61,8 +62,9 @@
   </table>
   <br>
 
-  <table class="pure-table pure-table-bordered pure-table-striped center status">
+  <table class="pure-table pure-table-bordered pure-table-striped center status pure-u-7-24">
   <th >不参加者</th>
+  <th>　　　</th>
     </tr>
     <% @cancelled_users.each do |cancelled_user| %>
       <tr>
@@ -79,8 +81,9 @@
   </table>
   <br>
 
-  <table class="pure-table pure-table-bordered pure-table-striped center status">
+  <table class="pure-table pure-table-bordered pure-table-striped center status pure-u-7-24">
   <th>未回答者</th>
+  <th colspan="2"></th>
     </tr>
     <% @unanswered_users.each do |unanswered_user| %>
       <tr>
@@ -102,6 +105,7 @@
       </tr>
     <% end %>  
   </table>
+</div>
 
 <br><br><br>
 <div class="title">コメント欄</div>
