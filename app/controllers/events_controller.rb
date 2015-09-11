@@ -46,9 +46,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    from = Time.now
-    to   = from + 1.year
-    @events = Event.where(date: (from...to)).order("date")
+    @events = Event.where("date >= ?",Time.now.to_s(:db) ).order("date")
   end
 
   def get_old_event
