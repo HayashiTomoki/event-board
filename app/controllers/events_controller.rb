@@ -67,17 +67,25 @@ class EventsController < ApplicationController
   def join
     @participants = Participant.where(user_id: params[:participant][:user_id])
     @participant = @participants.find_by(event_id: params[:event][:id])
-    @participant.update(status: 'participated')
+    @participant.update!(status: 'participated')
     flash[:change_participant] = @participant.user.user_name + 'さんを参加に変更しました' 
     redirect_to :back 
+
+    rescue => e
+      flash[:error] = @participant.errors.full_messages
+      redirect_to :back
   end
 
   def cancel 
     @participants = Participant.where(user_id: params[:participant][:user_id])
     @participant = @participants.find_by(event_id: params[:event][:id])
-    @participant.update(status: 'cancelled')
+    @participant.update!(status: 'cancelled')
     flash[:change_participant] = @participant.user.user_name + 'さんを不参加に変更しました' 
     redirect_to :back 
+
+    rescue => e
+      flash[:error] = @participant.errors.full_messages
+      redirect_to :back
   end
 
   def add_comment
